@@ -1,0 +1,39 @@
+import java.util.Arrays;
+import java.util.Random;
+
+public class task02_sem1 {
+    static Random random = new Random();
+    public static void main(String[] args) {
+       
+        for (int i = 0; i < 5; i++) { 
+    
+            System.out.printf("\n ***Итерация %d ***\n\n", i+1);
+            int[] arr1 = generateArray();
+            int[] arr2 = generateArray();
+            processArrays(arr1, arr2);
+        }
+       
+    }
+ // Метод, создающий одномерный массив 
+    static int[] generateArray() {
+        int[] arr = new int[random.nextInt(5)];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = ((int)(Math.random() * 31));
+        }
+        System.out.println(Arrays.toString(arr));
+        return arr;
+   }
+// Метод, находящий разность массивов + предупреждение если длины массивов не равны
+   static void processArrays(int[] arr1, int[] arr2){
+    if (arr1.length != arr2.length){
+            throw new RuntimeException("Длины массивов не равны");
+        }
+    int res = 0;
+    for (int i = 0; i < arr1.length; i++){
+      int a = arr1[i] - arr2[i];
+      res+= a;
+    }
+    
+    System.out.printf("Разность элементов массива: %d\n", res);
+ }   
+}
