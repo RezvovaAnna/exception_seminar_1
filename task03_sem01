@@ -1,0 +1,44 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class task03_sem01 {
+    static Random random = new Random();
+    public static void main(String[] args) {
+       
+        for (int i = 0; i < 5; i++) { 
+    
+            System.out.printf("\n ***Итерация %d ***\n\n", i+1);
+            int[] arr1 = generateArray();
+            int[] arr2 = generateArray();
+            processArrays(arr1, arr2);
+        }
+       
+    }
+ // Метод, создающий одномерный массив 
+    static int[] generateArray() {
+        int[] arr = new int[random.nextInt(5)];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = ((int)(Math.random() * 31));
+        }
+        System.out.println(Arrays.toString(arr));
+        return arr;
+   }
+// Метод,создающий массив на основе частных двух массивов + предупреждение если длины массивов не равны
+   static void processArrays(int[] arr1, int[] arr2){
+    if (arr1.length != arr2.length){
+            throw new RuntimeException("Длины массивов не равны");
+        }
+    List<String> res = new ArrayList<String>();  
+    for (int i = 0; i < arr1.length; i++){
+      double a = (double) arr1[i] / arr2[i];
+      String b= String.format("%.2f", a);
+      res.add(b);
+
+    }
+    System.out.print("Массив на основе частных:\n");
+    System.out.print(Arrays.toString(res.toArray()));
+
+ }   
+}
