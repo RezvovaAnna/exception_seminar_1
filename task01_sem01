@@ -1,0 +1,31 @@
+public class task01_sem1 {
+
+    public static void main(String[] args) {
+        //ParseError();
+        //ArrayIndexError();
+        DivideError();
+
+        
+    }
+//Парсинг слова в число
+ public static void ParseError() {
+     String str = "hello";
+     int res = Integer.parseInt(str);
+    System.out.println(res);
+
+ }
+//Выход за пределы массива
+ public static void ArrayIndexError() {
+    int[] arr = new int[12];
+    int e = arr[23];
+    System.out.println(e);
+
+ }
+//Деление на ноль
+  public static void DivideError() {
+    int a = 6;
+    int b = 0;
+    int res = a/b;
+    System.out.println(res);
+  }
+}
